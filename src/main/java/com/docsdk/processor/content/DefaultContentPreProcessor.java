@@ -17,6 +17,8 @@ public class DefaultContentPreProcessor implements ContentPreProcessor {
             }
         };
 
-        return byteSource.asCharSource(Charsets.UTF_8).read();
+        String str = byteSource.asCharSource(Charsets.UTF_8).read();
+
+		return (str == null ? null : str.intern());
     }
 }
